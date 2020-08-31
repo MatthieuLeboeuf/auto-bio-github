@@ -1,0 +1,23 @@
+{
+  "name": "auto-bio-github",
+  "version": "1.0.0",
+  "description": "Mise à jour automatique d'une bio github",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthieuLeboeuf/auto-bio-github.git"
+  },
+  "author": "Matthieu Leboeuf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatthieuLeboeuf/auto-bio-github/issues"
+  },
+  "homepage": "https://github.com/MatthieuLeboeuf/auto-bio-github#readme",
+  "dependencies": {
+    "@octokit/core": "^3.1.2",
+    "got": "^11.5.2"
+  }
+}
