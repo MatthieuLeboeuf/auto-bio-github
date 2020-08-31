@@ -1,5 +1,6 @@
 const { Octokit } = require("@octokit/core");
 const got = require('got');
+var moment = require('moment');
 const { GITHUB_TOKEN, WEATHER_TOKEN, CITY_ID } = require('./config.js');
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
@@ -14,8 +15,8 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN });
         console.log(error.response.body);
     }
 
-    var now = new Date();
+    moment.locale('fr');
     await octokit.request('PATCH /user', {
-        bio: `Météo actuelle à ${city} : ${weather} | Dernier update ${now.getHours()}:${now.getMinutes()} | Créé par MatthieuLeboeuf en utilisant JS`
+        bio: `Météo actuelle à ${city} : ${weather} | Dernier update ${moment().format('LT')} | Créé par MatthieuLeboeuf en utilisant JS`
     });
 })();
