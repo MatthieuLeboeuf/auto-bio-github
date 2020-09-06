@@ -7,7 +7,7 @@ Pour installer le bot, ouvrez le terminal et tapez les commandes suivantes :
 
 * `git clone https://github.com/MatthieuLeboeuf/auto-bio-github.git` - Téléchargement des fichiers
 * `npm install --production` - Installation des dépendances du bot
-* `node index.js` - Démarrage du bot
+* `node main.js` - Démarrage du bot
 
 ### Fichier de configuration
 
