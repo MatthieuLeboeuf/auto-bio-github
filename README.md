@@ -16,3 +16,13 @@ Pour que le bot fonctionne correctement, vous devez remplir le fichier de config
 * `GITHUB_TOKEN`: [Votre token Github](https://github.com/settings/tokens/new)
 * `WEATHER_TOKEN`: [Votre token Openweathermap](https://home.openweathermap.org/api_keys)
 * `CITY_ID`: l'id de votre ville
+
+### Lancement automatique
+
+Pour lancer automatiquement le bot toutes les 5 minutes il faut ajouter une tache planifiée :
+
+* `crontab -e`
+
+Puis ajouter :
+
+* `*/5 * * * * node /path/to/directory/main.js > /dev/null`
