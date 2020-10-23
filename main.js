@@ -10,6 +10,26 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN });
     try {
         const response = await got(`http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&appid=${WEATHER_TOKEN}`).json();
         weather = response.weather[0].main;
+        switch (weather) {
+            case 'Clear':
+                weather = 'Clair'
+                break;
+            case 'Clouds':
+                weather = 'Nuages'
+                break;
+            case 'Snow':
+                weather = 'Neige'
+                break;
+            case 'Rain':
+                weather = 'Pluie'
+                break;
+            case 'Drizzle':
+                weather = 'Bruine'
+                break;
+            case 'Thunderstorm':
+                weather = 'Orage'
+                break;
+        }
         city = response.name;
     } catch (error) {
         console.log(error.response.body);
@@ -17,6 +37,6 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
     moment.locale('fr');
     await octokit.request('PATCH /user', {
-        bio: `Météo actuelle à ${city} : ${weather} | Dernier update ${moment().format('LT')} | Créé par MatthieuLeboeuf en utilisant JS`
+        bio: `Météo à ${city} : ${weather} \n Mis à jour à ${moment().format('LT')} - Créé par MatthieuLeboeuf en utilisant JS`
     });
 })();
