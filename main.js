@@ -29,6 +29,9 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN });
             case 'Thunderstorm':
                 weather = 'Orage'
                 break;
+            case 'Fog':
+                weather = 'Brouillard'
+                break;
         }
         city = response.name;
     } catch (error) {
@@ -37,6 +40,6 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
     moment.locale('fr');
     await octokit.request('PATCH /user', {
-        bio: `Météo à ${city} : ${weather} \n Mis à jour à ${moment().format('LT')} - Créé par MatthieuLeboeuf en utilisant JS`
+        bio: `Météo à ${city} : ${weather} - Mis à jour à ${moment().format('LT')} - Créé par MatthieuLeboeuf en utilisant JS`
     });
 })();
